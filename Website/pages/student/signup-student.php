@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+<?php
+    require_once __DIR__ . '/../../api/bootstrap.php';
+    require_once __DIR__ . '/../../api/config.php';
+    $successMessage = flash('success');
+    $errorMessage = flash('error');
+?>
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -49,18 +55,18 @@
                             <a class="nav-link mx-lg-2" href="../../pages/listings/listings.html">Internships</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="../../pages/about.html">About</a>
+                            <a class="nav-link mx-lg-2" href="../about.html">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="../../pages/blogs.html">Blogs</a>
+                            <a class="nav-link mx-lg-2" href="../blogs.html">Blogs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="../../pages/help.html">Help</a>
+                            <a class="nav-link mx-lg-2" href="../help.html">Help</a>
                         </li>
                     </ul>
                 </div>
             </div>
-            <a href="#" class="login-button">Login</a>
+            <a href="../auth/login.php" class="login-button">Login</a>
             <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -68,60 +74,75 @@
     </nav>
 
     <!-- End Navbar -->
-    <!-- Login Section -->
-    <section class="login-section d-flex align-items-center justify-content-center text-center">
+    <!-- Signup Section -->
+    <section class="signup-section d-flex align-items-center justify-content-center text-center">
         <div class="container">
-            <div class="card shadow-sm p-4 mx-auto" style="max-width:400px; border-radius:12px;">
-                <h3 class="fw-bold mb-3" style="color:#009970;">Login</h3>
-                <form id="loginForm" novalidate>
+            <div class="card shadow-sm p-4 mx-auto" style="max-width:480px; border-radius:12px;">
+                <h3 class="fw-bold mb-3" style="color:#009970;">Student Signup</h3>
+                <?php if ($successMessage): ?>
+                    <div class="alert alert-success" role="alert"><?php echo htmlspecialchars($successMessage); ?></div>
+                <?php endif; ?>
+                <?php if ($errorMessage): ?>
+                    <div class="alert alert-danger" role="alert"><?php echo htmlspecialchars($errorMessage); ?></div>
+                <?php endif; ?>
+
+                <form id="studentSignupForm" action="../../api/auth.php" method="POST" novalidate>
+                    <!-- Name -->
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="studentName" name="name" placeholder="Full Name" required>
+                        <label for="studentName">Full Name</label>
+                        <div class="invalid-feedback">Please enter your full name.</div>
+                    </div>
+
                     <!-- Email -->
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
-                        <label for="email">Email address</label>
-                        <div class="invalid-feedback">Please enter your email.</div>
+                        <input type="email" class="form-control" id="studentEmail" name="email" placeholder="name@example.com" required>
+                        <label for="studentEmail">Email address</label>
+                        <div class="invalid-feedback">Please enter a valid email.</div>
                     </div>
 
                     <!-- Password -->
                     <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="password" placeholder="Password" required>
-                        <label for="password">Password</label>
-                        <div class="invalid-feedback">Please enter your password.</div>
+                        <input type="password" class="form-control" id="studentPassword" name="password" placeholder="Password" required>
+                        <label for="studentPassword">Password</label>
+                        <div class="invalid-feedback">Please enter a password.</div>
                     </div>
 
-                    <!-- Role -->
-                    <div class="mb-3 text-start">
-                        <label class="form-label small">Login as:</label>
-                        <select class="form-select" id="roleSelect" required>
-                            <option selected disabled value="">Choose...</option>
-                            <option value="student">Student</option>
-                            <option value="employer">Employer</option>
-                            <option value="admin">Admin</option>
-                        </select>
-                        <div class="invalid-feedback">Please select your role.</div>
+                    <!-- Confirm Password -->
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="studentConfirmPassword" placeholder="Confirm Password" required>
+                        <label for="studentConfirmPassword">Confirm Password</label>
+                        <div class="invalid-feedback">Passwords must match.</div>
+                    </div>
+
+                    <!-- Course -->
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="studentCourse" name="course" placeholder="Course or Major" required>
+                        <label for="studentCourse">Course / Major</label>
+                        <div class="invalid-feedback">Please enter your course.</div>
+                    </div>
+
+                    <!-- Skills / Interests -->
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" placeholder="Your skills and interests" id="studentSkills" name="skills" style="height:100px" required></textarea>
+                        <label for="studentSkills">Skills / Interests</label>
+                        <div class="invalid-feedback">Please enter your skills or interests.</div>
                     </div>
 
                     <!-- Submit -->
-
-                    <button class="btn btn-success w-100 py-2 mt-2" type="submit">Login</button>
-
-                    <!-- Forgot Password -->
-                    <div class="text-center mt-3">
-                        <a href="#" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">
-                            Forgot Password?
-                        </a>
-                    </div>
+                    <input type="hidden" name="action" value="register">
+                    <input type="hidden" name="role" value="student">
+                    <button class="btn btn-success w-100 py-2 mt-2" type="submit">Create Account</button>
 
                     <!-- Links -->
                     <p class="small mt-3 mb-0">
-                        Don’t have an account?
-                        <a href="../student/signup-student.html" class="text-success text-decoration-none">Sign up as Student</a> |
-                        <a href="../employer/signup-employer.html" class="text-success text-decoration-none">Employer</a>
+                        Already have an account?
+                        <a href="login.php" class="text-success text-decoration-none">Login</a>
                     </p>
                 </form>
             </div>
         </div>
     </section>
-
     <!-- Footer -->
     <footer class="footer mt-5 py-4">
         <div class="container">
@@ -171,51 +192,37 @@
         </div>
     </footer>
     <!-- End Footer -->
-    <!-- Forgot Password Modal -->
-    <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="forgotPasswordLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content border-0 shadow-sm">
-                <div class="modal-header bg-success text-white">
-                    <h5 class="modal-title" id="forgotPasswordLabel">Reset Password</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="forgotPasswordForm" novalidate>
-                        <div class="mb-3">
-                            <label for="resetEmail" class="form-label fw-semibold">Enter your registered email</label>
-                            <input type="email" id="resetEmail" class="form-control" placeholder="example@email.com" required>
-                            <div class="invalid-feedback">Please enter a valid email address.</div>
-                        </div>
-                        <div class="d-grid">
-                            <button type="submit" class="btn btn-success">Send OTP</button>
-                        </div>
-                    </form>
-
-                    <!-- OTP Form (hidden initially) -->
-                    <form id="otpForm" class="mt-3 d-none" novalidate>
-                        <div class="mb-3">
-                            <label for="otpCode" class="form-label fw-semibold">Enter OTP</label>
-                            <input type="text" id="otpCode" class="form-control" maxlength="6" placeholder="6-digit code" required>
-                            <div class="invalid-feedback">Please enter the OTP.</div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="newPassword" class="form-label fw-semibold">New Password</label>
-                            <input type="password" id="newPassword" class="form-control" placeholder="Enter new password" required>
-                        </div>
-                        <div class="d-grid">
-                            <button type="submit" class="btn btn-success">Reset Password</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Custom JS -->
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="../../assets/js/main.js"></script>
+
+    <script>
+        const signupForm = document.getElementById('studentSignupForm');
+        const signupAlert = document.getElementById('signupAlert');
+
+        signupForm.addEventListener('submit', (event) => {
+            if (!signupForm.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+                signupForm.classList.add('was-validated');
+                return;
+            }
+
+            signupAlert.classList.add('d-none');
+
+            const password = document.getElementById('studentPassword').value;
+            const confirmPassword = document.getElementById('studentConfirmPassword').value;
+            if (password !== confirmPassword) {
+                event.preventDefault();
+                event.stopPropagation();
+                signupAlert.textContent = 'Passwords must match';
+                signupAlert.classList.remove('d-none');
+                return;
+            }
+
+            signupForm.classList.add('was-validated');
+        });
+    </script>
+
 </body>
 </html>

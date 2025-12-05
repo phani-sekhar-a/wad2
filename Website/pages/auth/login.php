@@ -1,0 +1,244 @@
+<?php
+    require_once __DIR__ . '/../../api/bootstrap.php';
+    require_once __DIR__ . '/../../api/config.php';
+    $successMessage = flash('success');
+    $errorMessage = flash('error');
+?>
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>"Digital STratgey Internship Portal"</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+          crossorigin="anonymous">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+
+    <!-- Bootstrap 5 Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+</head>
+
+<body>
+    <!-- Bootstrap Bundle with Popper (JS) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+
+    <!-- Navbar -->
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand me-auto" href="../index.html">
+                <img src="../../assets/img/Navbar_Logo_2.png" alt="Digital Strategy Portal Logo" class="navbar-logo">
+            </a>
+
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">logo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="../../pages/listings/listings.html">Internships</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="../../pages/about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="../../pages/blogs.html">Blogs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="../../pages/help.html">Help</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <a href="#" class="login-button">Login</a>
+            <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- End Navbar -->
+    <!-- Login Section -->
+    <section class="login-section d-flex align-items-center justify-content-center text-center">
+        <div class="container">
+            <div class="card shadow-sm p-4 mx-auto" style="max-width:400px; border-radius:12px;">
+                <h3 class="fw-bold mb-3" style="color:#009970;">Login</h3>
+                <?php if ($successMessage): ?>
+                    <div class="alert alert-success" role="alert"><?php echo htmlspecialchars($successMessage); ?></div>
+                <?php endif; ?>
+                <?php if ($errorMessage): ?>
+                    <div class="alert alert-danger" role="alert"><?php echo htmlspecialchars($errorMessage); ?></div>
+                <?php endif; ?>
+                <form id="loginForm" action="../../api/auth.php" method="POST" novalidate>
+                    <!-- Email -->
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+                        <label for="email">Email address</label>
+                        <div class="invalid-feedback">Please enter your email.</div>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="password" placeholder="Password" required>
+                        <label for="password">Password</label>
+                        <div class="invalid-feedback">Please enter your password.</div>
+                    </div>
+
+                    <!-- Role -->
+                    <div class="mb-3 text-start">
+                        <label class="form-label small">Login as:</label>
+                        <select class="form-select" id="roleSelect" name="role" required>
+                            <option selected disabled value="">Choose...</option>
+                            <option value="student">Student</option>
+                            <option value="employer">Employer</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                        <div class="invalid-feedback">Please select your role.</div>
+                    </div>
+
+                    <!-- Submit -->
+
+                    <input type="hidden" name="action" value="login">
+                    <button class="btn btn-success w-100 py-2 mt-2" type="submit">Login</button>
+
+                    <!-- Forgot Password -->
+                    <div class="text-center mt-3">
+                        <a href="#" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">
+                            Forgot Password?
+                        </a>
+                    </div>
+
+                    <!-- Links -->
+                    <p class="small mt-3 mb-0">
+                        Don’t have an account?
+                        <a href="../student/signup-student.php" class="text-success text-decoration-none">Sign up as Student</a> |
+                        <a href="../employer/signup-employer.html" class="text-success text-decoration-none">Employer</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer mt-5 py-4">
+        <div class="container">
+            <div class="row text-center text-md-start">
+                <!-- Brand + Description -->
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="text-uppercase fw-bold" style="color: #009970;">Digital Strategy Portal</h5>
+                    <p class="small text-muted">
+                        Explore, apply, and manage digital strategy internships with ease.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h6 class="fw-bold" style="color: #009970;">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="footer-link">Home</a></li>
+                        <li><a href="#" class="footer-link">Internships</a></li>
+                        <li><a href="#" class="footer-link">About</a></li>
+                        <li><a href="#" class="footer-link">Help</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h6 class="fw-bold" style="color: #009970;">Contact</h6>
+                    <ul class="list-unstyled small">
+                        <li><i class="bi bi-envelope"></i> info@digitalstrategy.com</li>
+                        <li><i class="bi bi-telephone"></i> +44 1234 567 890</li>
+                        <li><i class="bi bi-geo-alt"></i> London, UK</li>
+                    </ul>
+                </div>
+
+                <!-- Social Icons -->
+                <div class="col-md-2 text-md-end text-center">
+                    <h6 class="fw-bold" style="color: #009970;">Follow Us</h6>
+                    <a href="#" class="footer-social"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="footer-social"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="footer-social"><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+
+            <hr class="mt-4 mb-2">
+            <div class="text-center small text-muted">
+                © 2025 Digital Strategy Internship Portal. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+    <!-- Forgot Password Modal -->
+    <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="forgotPasswordLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-sm">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title" id="forgotPasswordLabel">Reset Password</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="forgotPasswordForm" novalidate>
+                        <div class="mb-3">
+                            <label for="resetEmail" class="form-label fw-semibold">Enter your registered email</label>
+                            <input type="email" id="resetEmail" class="form-control" placeholder="example@email.com" required>
+                            <div class="invalid-feedback">Please enter a valid email address.</div>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success">Send OTP</button>
+                        </div>
+                    </form>
+
+                    <!-- OTP Form (hidden initially) -->
+                    <form id="otpForm" class="mt-3 d-none" novalidate>
+                        <div class="mb-3">
+                            <label for="otpCode" class="form-label fw-semibold">Enter OTP</label>
+                            <input type="text" id="otpCode" class="form-control" maxlength="6" placeholder="6-digit code" required>
+                            <div class="invalid-feedback">Please enter the OTP.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="newPassword" class="form-label fw-semibold">New Password</label>
+                            <input type="password" id="newPassword" class="form-control" placeholder="Enter new password" required>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success">Reset Password</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="../../assets/js/main.js"></script>
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        loginForm.addEventListener('submit', (event) => {
+            if (!loginForm.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            loginForm.classList.add('was-validated');
+        });
+    </script>
+</body>
+</html>
