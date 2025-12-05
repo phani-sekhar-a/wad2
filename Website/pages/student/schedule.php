@@ -1,4 +1,16 @@
-﻿<!DOCTYPE html>
+<?php
+    require_once __DIR__ . '/../../api/bootstrap.php';
+    require_once __DIR__ . '/../../api/config.php';
+    $pdo = get_pdo();
+    $userId = require_login('../auth/login.php');
+    $successMessage = flash('success');
+    $errorMessage = flash('error');
+
+    $stmt = $pdo->prepare('SELECT internship_title, interview_date, interview_time, send_reminder FROM interviews WHERE user_id = ? ORDER BY interview_date, interview_time');
+    $stmt->execute([$userId]);
+    $scheduledInterviews = $stmt->fetchAll();
+?>
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -60,7 +72,7 @@
                     </ul>
                 </div>
             </div>
-            <a href="../auth/login.html" class="login-button">Login</a>
+            <a href="../auth/login.php" class="login-button">Login</a>
             <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -75,10 +87,18 @@
                 <div class="card-body">
                     <h3 class="fw-bold mb-4 text-center" style="color:#009970;">Schedule Your Interview</h3>
 
-                    <form id="scheduleForm" novalidate>
+                    <?php if ($successMessage): ?>
+                        <div class="alert alert-success" role="alert"><?php echo htmlspecialchars($successMessage); ?></div>
+                    <?php endif; ?>
+                    <?php if ($errorMessage): ?>
+                        <div class="alert alert-danger" role="alert"><?php echo htmlspecialchars($errorMessage); ?></div>
+                    <?php endif; ?>
+
+                    <div id="scheduleAlert" class="alert alert-danger d-none" role="alert"></div>
+                    <form id="scheduleForm" action="../../api/interviews.php" method="POST" novalidate>
                         <!-- Internship -->
                         <div class="form-floating mb-3">
-                            <select class="form-select" id="internshipSelect" required>
+                            <select class="form-select" id="internshipSelect" name="internship" required>
                                 <option selected disabled value="">Select Internship</option>
                                 <option>SEO & Analytics Intern</option>
                                 <option>Social Media Intern</option>
@@ -91,21 +111,21 @@
 
                         <!-- Interview Date -->
                         <div class="form-floating mb-3">
-                            <input type="date" class="form-control" id="interviewDate" required>
+                            <input type="date" class="form-control" id="interviewDate" name="date" required>
                             <label for="interviewDate">Select Date</label>
                             <div class="invalid-feedback">Please select a date.</div>
                         </div>
 
                         <!-- Interview Time -->
                         <div class="form-floating mb-3">
-                            <input type="time" class="form-control" id="interviewTime" required>
+                            <input type="time" class="form-control" id="interviewTime" name="time" required>
                             <label for="interviewTime">Select Time</label>
                             <div class="invalid-feedback">Please select a time.</div>
                         </div>
 
                         <!-- Reminder -->
                         <div class="form-check mb-4">
-                            <input class="form-check-input" type="checkbox" id="reminderCheck">
+                            <input class="form-check-input" type="checkbox" id="reminderCheck" name="reminder">
                             <label class="form-check-label" for="reminderCheck">
                                 Send me a reminder email
                             </label>
@@ -118,6 +138,35 @@
                             </button>
                         </div>
                     </form>
+
+                    <hr class="my-4">
+                    <h5 class="fw-semibold mb-3">Upcoming interviews</h5>
+                    <?php if (count($scheduledInterviews) === 0): ?>
+                        <p class="text-muted mb-0">No interviews scheduled yet.</p>
+                    <?php else: ?>
+                        <div class="table-responsive">
+                            <table class="table table-sm align-middle">
+                                <thead>
+                                    <tr>
+                                        <th>Internship</th>
+                                        <th>Date</th>
+                                        <th>Time</th>
+                                        <th>Reminder</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($scheduledInterviews as $interview): ?>
+                                        <tr>
+                                            <td><?php echo htmlspecialchars($interview['internship_title']); ?></td>
+                                            <td><?php echo htmlspecialchars($interview['interview_date']); ?></td>
+                                            <td><?php echo htmlspecialchars($interview['interview_time']); ?></td>
+                                            <td><?php echo $interview['send_reminder'] ? 'Yes' : 'No'; ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -198,5 +247,20 @@
 
                     <!-- Custom JS -->
                     <script src="../../assets/js/main.js"></script>
+                    <script>
+                        const scheduleForm = document.getElementById('scheduleForm');
+                        const scheduleAlert = document.getElementById('scheduleAlert');
+
+                        scheduleForm.addEventListener('submit', (event) => {
+                            if (!scheduleForm.checkValidity()) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+
+                            scheduleAlert.classList.add('d-none');
+                            scheduleForm.classList.add('was-validated');
+                        });
+                    </script>
+
 </body>
 </html>

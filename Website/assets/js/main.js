@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 event.preventDefault();
                 alert("Student account created successfully! (Mock functionality)");
-                window.location.href = "../../pages/auth/login.html"; 
+                window.location.href = "../../pages/auth/login.php"; 
             }
 
             signupForm.classList.add("was-validated");
@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
         event.preventDefault();
         alert("Employer account created successfully! (Mock functionality)");
-          window.location.href = "../../pages/auth/login.html"; 
+          window.location.href = "../../pages/auth/login.php"; 
       }
 
       employerForm.classList.add("was-validated");
