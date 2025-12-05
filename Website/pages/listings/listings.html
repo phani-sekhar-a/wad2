@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>"Digital STratgey Internship Portal"</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+          crossorigin="anonymous">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+
+    <!-- Bootstrap 5 Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+</head>
+
+<body>
+    <!-- Bootstrap Bundle with Popper (JS) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+
+    <!-- Navbar -->
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand me-auto" href="../index.html">
+                <img src="../../assets/img/Navbar_Logo_2.png" alt="Digital Strategy Portal Logo" class="navbar-logo">
+            </a>
+
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">logo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="listings.html">Internships</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="../about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="../blogs.html">Blogs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="../help.html">Help</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <a href="../../pages/auth/login.html" class="login-button">Login</a>
+            <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- End Navbar -->
+    <!-- Search + Filter Bar -->
+    <section class="filter-bar py-5" style="margin-top:90px;">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-4" style="color:#009970;">Find an Internship That Works for You</h2>
+
+            <div class="row g-3 justify-content-center">
+                <div class="col-md-3 col-sm-6">
+                    <input type="text" id="keywordFilter" class="form-control" placeholder="Keywords / title / company">
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <select id="categoryFilter" class="form-select">
+                        <option value="">All Categories</option>
+                        <option value="seo">SEO & Analytics</option>
+                        <option value="social">Social Media</option>
+                        <option value="content">Content Strategy</option>
+                        <option value="marketing">Digital Marketing</option>
+                    </select>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <select id="sortFilter" class="form-select">
+                        <option value="">Sort By</option>
+                        <option value="deadline">Nearest Deadline</option>
+                        <option value="latest">Recently Added</option>
+                    </select>
+                </div>
+                <div class="col-md-2 col-sm-6 d-grid">
+                    <button id="applyFilters" class="btn btn-success"><i class="bi bi-funnel me-2"></i>Filter</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Filter Bar -->
+     <!-- Listings Section -->
+  <section class="listings-section py-5 bg-light" style="margin-top: 100px;">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-5" style="color:#009970;">Available Internships</h2>
+      <div class="row g-4">
+          <!-- SEO & Analytics -->
+          <div class="col-md-6 col-lg-4" data-deadline="2025-11-30">
+              <div class="card internship-card h-100 shadow-sm">
+                  <img src="../../assets/img/2.jpg" class="card-img-top" alt="SEO & Analytics Internship">
+                  <div class="card-body">
+                      <h5 class="card-title">SEO & Analytics Intern</h5>
+                      <p class="card-text text-muted">
+                          Gain experience in search engine optimization, keyword research, and analytics reporting for real clients.
+                      </p>
+                      <ul class="list-unstyled small mb-3">
+                          <li><i class="bi bi-geo-alt text-success"></i> Remote</li>
+                          <li><i class="bi bi-clock text-success"></i> Duration: 3 Months</li>
+                          <li><i class="bi bi-cash text-success"></i> Stipend: £250/month</li>
+                          <li><i class="bi bi-calendar text-success"></i> Deadline: 30 Nov 2025</li>
+                      </ul>
+                      <a href="../student/apply.html?title=SEO%20%26%20Analytics" class="btn btn-success w-100">Apply Now</a>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Social Media -->
+          <div class="col-md-6 col-lg-4" data-deadline="2025-12-05">
+              <div class="card internship-card h-100 shadow-sm">
+                  <img src="../../assets/img/3.jpg" class="card-img-top" alt="Social Media Internship">
+                  <div class="card-body">
+                      <h5 class="card-title">Social Media Intern</h5>
+                      <p class="card-text text-muted">
+                          Assist in managing and creating engaging content for multiple platforms to build audience engagement.
+                      </p>
+                      <ul class="list-unstyled small mb-3">
+                          <li><i class="bi bi-geo-alt text-success"></i> Hybrid (London)</li>
+                          <li><i class="bi bi-clock text-success"></i> Duration: 2 Months</li>
+                          <li><i class="bi bi-cash text-success"></i> Stipend: £200/month</li>
+                          <li><i class="bi bi-calendar text-success"></i> Deadline: 5 Dec 2025</li>
+                      </ul>
+                      <a href="../student/apply.html?title=Social%20Media" class="btn btn-success w-100">Apply Now</a>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Content Strategy -->
+          <div class="col-md-6 col-lg-4" data-deadline="2025-11-20">
+              <div class="card internship-card h-100 shadow-sm">
+                  <img src="../../assets/img/4.jpg" class="card-img-top" alt="Content Strategy Internship">
+                  <div class="card-body">
+                      <h5 class="card-title">Content Strategy Intern</h5>
+                      <p class="card-text text-muted">
+                          Support content planning and SEO-optimized blog creation to drive traffic and engagement.
+                      </p>
+                      <ul class="list-unstyled small mb-3">
+                          <li><i class="bi bi-geo-alt text-success"></i> Remote</li>
+                          <li><i class="bi bi-clock text-success"></i> Duration: 3 Months</li>
+                          <li><i class="bi bi-cash text-success"></i> Stipend: £300/month</li>
+                          <li><i class="bi bi-calendar text-success"></i> Deadline: 20 Nov 2025</li>
+                      </ul>
+                      <a href="../student/apply.html?title=Content%20Strategy" class="btn btn-success w-100">Apply Now</a>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Digital Marketing -->
+          <div class="col-md-6 col-lg-4" data-deadline="2025-12-10">
+              <div class="card internship-card h-100 shadow-sm">
+                  <img src="../../assets/img/5.jpg" class="card-img-top" alt="Digital Marketing Internship">
+                  <div class="card-body">
+                      <h5 class="card-title">Digital Marketing Intern</h5>
+                      <p class="card-text text-muted">
+                          Work on online campaigns, social media analytics, and marketing automation tools.
+                      </p>
+                      <ul class="list-unstyled small mb-3">
+                          <li><i class="bi bi-geo-alt text-success"></i> On-site (Manchester)</li>
+                          <li><i class="bi bi-clock text-success"></i> Duration: 4 Months</li>
+                          <li><i class="bi bi-cash text-success"></i> Stipend: £350/month</li>
+                          <li><i class="bi bi-calendar text-success"></i> Deadline: 10 Dec 2025</li>
+                      </ul>
+                      <a href="../student/apply.html?title=Digital%20Marketing" class="btn btn-success w-100">Apply Now</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+      </div>
+      </section>
+
+          <!-- Footer -->
+          <footer class="footer mt-5 py-4">
+              <div class="container">
+                  <div class="row text-center text-md-start">
+                      <!-- Brand + Description -->
+                      <div class="col-md-4 mb-4 mb-md-0">
+                          <h5 class="text-uppercase fw-bold" style="color: #009970;">Digital Strategy Portal</h5>
+                          <p class="small text-muted">
+                              Explore, apply, and manage digital strategy internships with ease.
+                          </p>
+                      </div>
+
+                      <!-- Quick Links -->
+                      <div class="col-md-3 mb-4 mb-md-0">
+                          <h6 class="fw-bold" style="color: #009970;">Quick Links</h6>
+                          <ul class="list-unstyled">
+                              <li><a href="#" class="footer-link">Home</a></li>
+                              <li><a href="#" class="footer-link">Internships</a></li>
+                              <li><a href="#" class="footer-link">About</a></li>
+                              <li><a href="#" class="footer-link">Help</a></li>
+                          </ul>
+                      </div>
+
+                      <!-- Contact Info -->
+                      <div class="col-md-3 mb-4 mb-md-0">
+                          <h6 class="fw-bold" style="color: #009970;">Contact</h6>
+                          <ul class="list-unstyled small">
+                              <li><i class="bi bi-envelope"></i> info@digitalstrategy.com</li>
+                              <li><i class="bi bi-telephone"></i> +44 1234 567 890</li>
+                              <li><i class="bi bi-geo-alt"></i> London, UK</li>
+                          </ul>
+                      </div>
+
+                      <!-- Social Icons -->
+                      <div class="col-md-2 text-md-end text-center">
+                          <h6 class="fw-bold" style="color: #009970;">Follow Us</h6>
+                          <a href="#" class="footer-social"><i class="bi bi-facebook"></i></a>
+                          <a href="#" class="footer-social"><i class="bi bi-twitter"></i></a>
+                          <a href="#" class="footer-social"><i class="bi bi-linkedin"></i></a>
+                      </div>
+                  </div>
+
+                  <hr class="mt-4 mb-2">
+                  <div class="text-center small text-muted">
+                      © 2025 Digital Strategy Internship Portal. All rights reserved.
+                  </div>
+              </div>
+          </footer>
+          <!-- End Footer -->
+          <!-- Swiper JS -->
+          <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+          <!-- Your main JS -->
+          <script src="../../assets/js/main.js"></script>
+
+
+</body>
+</html>

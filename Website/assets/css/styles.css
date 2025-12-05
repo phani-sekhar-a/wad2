@@ -1,0 +1,655 @@
+/* Navbar Section */
+.navbar{
+    background-color: #ffff;
+    height: 80px;
+    margin: 20px;
+    border-radius: 16px;
+    padding: 0.5rem;
+}
+
+.navbar-brand{
+    font-weight: 500;
+    color: #009970;
+    font-size: 24px;
+    transition: 0.3s color;
+}
+
+
+.login-button {
+    background-color: #009970;
+    color: #fff;
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+}
+
+    .login-button:hover {
+        background-color: #000000;
+    }
+
+    .login-button:hover {
+        background-color: #000000;
+    }
+
+.navbar-toggler {
+    border: none;
+    font-size: 1.25rem;
+}
+
+    .navbar-toggler:focus, .btn-close:focus {
+        box-shadow: none;
+        outline: none;
+    }
+
+.nav-link {
+    color: #666777;
+    font-weight: 500;
+    position: relative;
+}
+
+    .nav-link:hover, .nav-link:active {
+        color: #000000;
+    }
+@media (min-width: 991px) {
+    .nav-link:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0%;
+        height: 2px;
+        background-color: #009970;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+    }
+
+    .nav-link:hover::before, .nav-link.active::after {
+        width: 100%;
+        visibility: visible;
+    }
+}
+
+.navbar-logo {
+    height: 45px; 
+    width: auto; 
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+}
+
+    .navbar-logo:hover {
+        transform: scale(1.05);
+    }
+
+/* End Navbar Section */
+/* Hero Section */
+.hero-section {
+    background: url("../img/Hero_Bkg10.jpg") no-repeat center center;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    color: #fff;
+    text-align: center;
+    padding-top: 0px;
+}
+
+    .hero-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.55);
+    }
+
+    .hero-section .container {
+        position: relative;
+        z-index: 1; 
+    }
+
+    .hero-section h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    .hero-section p {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .hero-section .btn-success {
+        background-color: #009970;
+        border: none;
+        transition: 0.3s ease;
+    }
+
+        .hero-section .btn-success:hover {
+            background-color: #007b5e;
+        }
+
+    .hero-section .btn-outline-light:hover {
+        background-color: #fff;
+        color: #009970;
+    }
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding-top: 160px; /* slightly less padding on smaller screens */
+    }
+
+        .hero-section h1 {
+            font-size: 1.8rem;
+        }
+
+        .hero-section p {
+            font-size: 1rem;
+        }
+}
+/* End Hero Section */
+/* Why Choose Us Section */
+.why-section {
+    background-color: #fff;
+}
+
+    .why-section h2 {
+        font-size: 2rem;
+    }
+
+    .why-section i {
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+        .why-section i:hover {
+            transform: scale(1.15);
+            color: #007b5e;
+        }
+
+    .why-section h5 {
+        font-weight: 600;
+        margin-top: 1rem;
+    }
+
+    .why-section p {
+        font-size: 0.9rem;
+        color: #666777;
+    }
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .why-section h2 {
+        font-size: 1.6rem;
+    }
+}
+/* Featured Internships Section */
+.featured-section {
+    background-color: #f8f9fa;
+    background-size: cover;
+}
+
+    .featured-section h2 {
+        font-size: 2rem;
+    }
+
+    .featured-section .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .featured-section .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+        }
+
+    .featured-section .card-title {
+        color: #000;
+    }
+
+    .featured-section .btn-success {
+        background-color: #009970;
+        border: none;
+    }
+
+        .featured-section .btn-success:hover {
+            background-color: #007b5e;
+        }
+
+    .featured-section .btn-outline-success {
+        border-color: #009970;
+        color: #009970;
+        transition: all 0.3s ease;
+    }
+
+        .featured-section .btn-outline-success:hover {
+            background-color: #009970;
+            color: #fff;
+        }
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+    .featured-section h2 {
+        font-size: 1.6rem;
+    }
+}
+/* Stats Section */
+.stats-section {
+    background-color: #fff;
+}
+
+    .stats-section h2 {
+        font-size: 2rem;
+    }
+
+    .stats-section p {
+        color: #666777;
+        margin: 0;
+    }
+
+@media (max-width: 768px) {
+    .stats-section h2 {
+        font-size: 1.6rem;
+    }
+}
+
+/* How It Works Section */
+.how-section {
+    background-color: #f8f9fa;
+}
+
+    .how-section h2 {
+        font-size: 2rem;
+    }
+
+    .how-section .card {
+        background: transparent;
+        transition: transform 0.3s ease;
+    }
+
+        .how-section .card:hover {
+            transform: translateY(-6px);
+        }
+
+    .how-section i {
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+        .how-section i:hover {
+            transform: scale(1.2);
+            color: #007b5e;
+        }
+
+    .how-section h6 {
+        color: #000;
+    }
+
+    .how-section p {
+        color: #666777;
+        font-size: 0.9rem;
+    }
+
+@media (max-width: 768px) {
+    .how-section h2 {
+        font-size: 1.6rem;
+    }
+}
+/* Final Call-To-Action Section */
+.cta-section {
+    background-color: #009970; 
+    color: #fff;
+}
+
+    .cta-section h2 {
+        font-size: 2rem;
+    }
+
+    .cta-section p {
+        font-size: 1rem;
+        color: #f8f9fa;
+    }
+
+    .cta-section .btn-light {
+        background-color: #fff;
+        color: #009970;
+        border: none;
+        transition: 0.3s ease;
+    }
+
+        .cta-section .btn-light:hover {
+            background-color: #e6e6e6;
+            color: #007b5e;
+        }
+
+    .cta-section .btn-outline-light {
+        border: 2px solid #fff;
+        color: #fff;
+        transition: 0.3s ease;
+    }
+
+        .cta-section .btn-outline-light:hover {
+            background-color: #fff;
+            color: #009970;
+        }
+
+@media (max-width: 768px) {
+    .cta-section h2 {
+        font-size: 1.6rem;
+    }
+
+    .cta-section p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Footer Section */
+.footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+}
+
+    .footer h6, .footer h5 {
+        color: #009970;
+        margin-bottom: 0.75rem;
+    }
+
+.footer-link {
+    color: #666777;
+    text-decoration: none;
+    transition: 0.3s color;
+}
+
+    .footer-link:hover {
+        color: #009970;
+        text-decoration: underline;
+    }
+
+.footer-social {
+    color: #666777;
+    font-size: 1.25rem;
+    margin-right: 10px;
+    transition: color 0.3s;
+}
+
+    .footer-social:hover {
+        color: #009970;
+    }
+
+@media (max-width: 767px) {
+    .footer .text-md-end {
+        text-align: center !important;
+        margin-top: 1rem;
+    }
+}
+
+/* Listings Hero (search) */
+.listings-hero {
+    background: url("../img/Hero_Bkg.jpg") no-repeat center center;
+    background-size: cover;
+    min-height: 50vh;
+    position: relative;
+    color: #fff;
+    text-align: center;
+    /* spacing below fixed navbar */
+    padding-top: 120px;
+    padding-bottom: 40px;
+}
+
+    .listings-hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.45);
+    }
+
+    .listings-hero .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    .listings-hero .search-form .form-control,
+    .listings-hero .search-form .form-select {
+        padding: 0.75rem 1rem;
+        border: 0;
+        box-shadow: none;
+        font-size: 0.95rem;
+    }
+
+    .listings-hero .search-form .input-group-text {
+        border: 0;
+    }
+
+    .listings-hero .search-form .input-group,
+    .listings-hero .search-form .form-select {
+        border-radius: 50rem;
+    }
+
+@media (max-width: 768px) {
+    .listings-hero {
+        padding-top: 140px;
+    }
+}
+
+/* Internship Slider */
+.internship-slider {
+    background-color: #f8f9fa;
+}
+
+    .internship-slider .swiper {
+        padding-bottom: 40px;
+        cursor: grab;
+    }
+
+    .internship-slider .swiper-slide {
+        display: flex;
+        justify-content: center;
+    }
+
+    .internship-slider .card {
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease;
+    }
+
+        .internship-slider .card:hover {
+            transform: translateY(-5px);
+        }
+
+    .internship-slider .btn-success {
+        background-color: #009970;
+        border: none;
+        transition: 0.3s ease;
+    }
+
+        .internship-slider .btn-success:hover {
+            background-color: #007b5e;
+        }
+
+/*Internship Detail Page*/
+/* Main card container styling */
+.internship-detail {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    padding: 2rem 2.5rem;
+}
+
+    .internship-detail h2 {
+        color: #009970;
+        font-weight: 700;
+    }
+
+    .internship-detail hr {
+        border-top: 1px solid #e0e0e0;
+        margin: 1.2rem 0;
+    }
+
+    .internship-detail h5 {
+        color: #009970;
+        margin-top: 1.5rem;
+    }
+
+    .internship-detail ul {
+        margin-top: 0.5rem;
+        padding-left: 1.5rem;
+    }
+
+        .internship-detail ul li {
+            margin-bottom: 0.4rem;
+            color: #555;
+        }
+
+    .internship-detail .btn-success {
+        background-color: #009970;
+        border: none;
+        transition: 0.3s ease;
+    }
+
+        .internship-detail .btn-success:hover {
+            background-color: #007b5e;
+        }
+
+/* Animation on load */
+.fade-in {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .internship-detail {
+        padding: 1.5rem;
+    }
+}
+
+
+/* Login Page for All*/
+.login-section {
+    min-height: 100vh;
+    /*background-color: #c3e5dc;*/
+    background: url("../../assets/img/Hero_Background.jpg") no-repeat center center;
+    padding-top: 30px;
+}
+
+    .login-section .card {
+        border: none;
+    }
+
+/* Student Signup Page */
+.signup-section {
+    min-height: 100vh;
+    background: url("../img/Hero_Background.jpg") no-repeat center center;
+    padding-top: 120px;
+    padding-bottom: 30px;
+}
+
+    .signup-section .card {
+        border: none;
+    }
+
+/* Employer Profile Page */
+main.container-fluid {
+    min-height: 100vh;
+}
+
+.card-header {
+    font-size: 1rem;
+}
+
+/* Admin Dashboard */
+main.container-fluid {
+    min-height: 100vh;
+}
+
+.card-header i {
+    vertical-align: middle;
+}
+
+/* Student Dashboard */
+main.container-fluid {
+    min-height: 100vh;
+}
+
+/* Schedule Page */
+.schedule-section {
+    min-height: 100vh;
+}
+
+#confirmModal .modal-body i {
+    color: #009970;
+}
+
+#downloadReportBtn:hover {
+    background-color: #007b5e;
+    transition: 0.3s ease;
+}
+
+/* --- Fix Featured Internship button sizing --- */
+.featured-section .card .btn-success {
+    display: inline-block;
+    min-width: 120px;
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+/*Internship Listings Page*/
+.filter-bar {
+    background-color: #ffff;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+    .filter-bar input,
+    .filter-bar select {
+        border-radius: 50px;
+        padding: 0.6rem 1rem;
+    }
+
+    .filter-bar button {
+        border-radius: 50px;
+        background-color: #009970;
+        border: none;
+    }
+
+        .filter-bar button:hover {
+            background-color: #007b5e;
+        }
+
+/* Internship Listings */
+.internship-card {
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .internship-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .internship-card .card-title {
+        color: #009970;
+        font-weight: 600;
+    }
+
+

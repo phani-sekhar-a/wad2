@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\assets",
+    "\\assets\\css",
+    "\\assets\\js",
+    "\\pages",
+    "\\pages\\admin",
+    "\\pages\\auth",
+    "\\pages\\employer",
+    "\\pages\\listings",
+    "\\pages\\student"
+  ],
+  "SelectedNode": "\\assets\\js\\main.js",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,0 +1,72 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\hp\\Downloads\\Web Dev - Assignment\\Web Dev - Assignment\\Website\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\hp\\Downloads\\Web Dev - Assignment\\Web Dev - Assignment\\Website\\assets\\css\\styles.css||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\css\\styles.css||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\hp\\Downloads\\Web Dev - Assignment\\Web Dev - Assignment\\Website\\assets\\js\\main.js||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\js\\main.js||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\hp\\Downloads\\Web Dev - Assignment\\Web Dev - Assignment\\Website\\pages\\index.html||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:pages\\index.html||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\hp\\Downloads\\Web Dev - Assignment\\Web Dev - Assignment\\Website\\pages\\index.html",
+              "RelativeDocumentMoniker": "pages\\index.html",
+              "ToolTip": "C:\\Users\\hp\\Downloads\\Web Dev - Assignment\\Web Dev - Assignment\\Website\\pages\\index.html",
+              "RelativeToolTip": "pages\\index.html",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-11-10T09:51:50.808Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "main.js",
+              "DocumentMoniker": "C:\\Users\\hp\\Downloads\\Web Dev - Assignment\\Web Dev - Assignment\\Website\\assets\\js\\main.js",
+              "RelativeDocumentMoniker": "assets\\js\\main.js",
+              "ToolTip": "C:\\Users\\hp\\Downloads\\Web Dev - Assignment\\Web Dev - Assignment\\Website\\assets\\js\\main.js",
+              "RelativeToolTip": "assets\\js\\main.js",
+              "ViewState": "AgIAAPkAAAAAAAAAAAAAAPkAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-11-10T10:43:00.066Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "styles.css",
+              "DocumentMoniker": "C:\\Users\\hp\\Downloads\\Web Dev - Assignment\\Web Dev - Assignment\\Website\\assets\\css\\styles.css",
+              "RelativeDocumentMoniker": "assets\\css\\styles.css",
+              "ToolTip": "C:\\Users\\hp\\Downloads\\Web Dev - Assignment\\Web Dev - Assignment\\Website\\assets\\css\\styles.css",
+              "RelativeToolTip": "assets\\css\\styles.css",
+              "ViewState": "AgIAAC0BAAAAAAAAAAAAAD4BAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-11-10T10:42:28.454Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
